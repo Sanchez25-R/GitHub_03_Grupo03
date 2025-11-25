@@ -1,0 +1,90 @@
+---
+title: "Análisis morfométrico de hojas de níspero utilizando técnicas manuales y software ImageJ"
+author: "G3"
+format:
+  html:
+    toc: true
+    toc-expand: true
+    toc-depth: 4
+    toc-location: left
+    number-sections: true
+    self-contained: true
+    code-fold: true
+    output-file: "ESM"
+editor_options: 
+  chunk_output_type: console
+execute: 
+  warning: false
+  message: false
+  echo: true
+---
+
+
+| ![](https://webllena.com/wp-content/uploads/2018/05/ImageJ.png){width=90%} | ![](https://www.guiadearbolado.com.ar/wp-content/uploads/que-es-el-nispero-en-argentina.webp){width=90%} |
+|-------------------------------|-------------------------------|
+|                       |                         |
+
+
+# Introducción 
+
+El análisis de características morfológicas en hojas es una herramienta fundamental en estudios agronómicos, fisiológicos y ecológicos. En el caso del níspero (Eriobotrya japonica), la evaluación del área foliar, longitud y ancho permite comprender el desarrollo vegetativo de la planta, su respuesta a condiciones ambientales y su estado sanitario. Tradicionalmente, estas mediciones se realizan de manera manual, un proceso que, si bien es sencillo, puede ser lento, propenso a errores y limitado cuando se trabaja con grandes cantidades de muestras.
+
+Ante estas limitaciones, el uso de herramientas digitales como ImageJ ha cobrado especial relevancia en la investigación agrícola. ImageJ es un software de análisis de imágenes que permite realizar mediciones precisas y repetibles a partir de fotografías calibradas, facilitando el fenotipado digital de hojas y optimizando la recolección de datos morfométricos.
+
+Como parte de este estudio, se ha desarrollado un repositorio de fenotipado de hojas en ImageJ, el cual incluye tanto las imágenes utilizadas como la base de datos generada en Google Sheets. Este repositorio tiene como finalidad documentar el proceso, asegurar la reproducibilidad del análisis y proporcionar un conjunto de datos accesible para futuras investigaciones o comparaciones.
+
+
+# Objetivos
+
+## general
+
+Determinar el área foliar, la longitud y el ancho de hojas de níspero (Eriobotrya japonica) análisis digital con el software ImageJ, con el fin de comparar la precisión y eficiencia 
+
+## especificos 
+
+1. colectar muestras de hojas de níspero y tomar las fotos con su respectiva escala para el analisis en Imagej.
+2. Procesar las imágenes en ImageJ mediante calibración, detección de bordes y herramientas de medición para determinar área foliar y dimensiones morfológicas.
+
+3. Construir un repositorio digital que incluya imágenes, metadatos y la base de datos final en Excel o Google Sheets para asegurar la reproducibilidad y trazabilidad del estudio.
+
+# Justificación 
+La medición del área foliar y de las dimensiones morfológicas de las hojas constituye un parámetro fundamental para estudiar el crecimiento, la eficiencia fotosintética y el estado fisiológico de las plantas. En el níspero (Eriobotrya japonica), estas variables permiten evaluar el desarrollo vegetativo, la respuesta a condiciones ambientales y su comportamiento agronómico.
+
+Tradicionalmente, estas mediciones se realizan de forma manual, lo que implica un proceso laborioso, sujeto a variabilidad humana y poco eficiente cuando se trabaja con un número considerable de muestras. Debido a ello, surge la necesidad de utilizar herramientas digitales que permitan realizar mediciones más rápidas, precisas y reproducibles.
+
+En este contexto, el uso de ImageJ representa una alternativa eficaz para optimizar el análisis morfométrico. En este estudio se empleó la función de análisis por color, lo cual permitió diferenciar de manera más clara la hoja del fondo, facilitando la segmentación de la imagen y obteniendo con mayor facilidad el área foliar, la longitud y el ancho. Esta metodología digital no solo mejora la precisión de las mediciones sino que también reduce significativamente el tiempo de procesamiento y el margen de error.
+
+Además, la elaboración de un repositorio con las imágenes y la base de datos generada asegura la transparencia del proceso, permite la reproducibilidad del estudio y aporta un recurso valioso para futuras investigaciones relacionadas con el fenotipado de hojas.
+
+
+# Metodologia 
+
+## Recolección de hojas
+
+La recolección de hojas de níspero (Eriobotrya japonica) se realizó seleccionando hojas sanas, completas y representativas del dosel de la planta. Cada hoja fue etiquetada y codificada para su posterior registro en la base de datos. Luego, las hojas fueron trasladadas a un área de trabajo con iluminación uniforme para capturar las imágenes necesarias para el análisis digital.
+
+
+
+## Captura de las hojas 
+
+Para cada toma fotográfica, se colocó una moneda de un sol junto a la hoja como elemento de referencia. Esta moneda posee un diámetro estándar de 2.54 cm, que fue utilizado posteriormente en el software ImageJ para la calibración de escala. Esta moneda fue colocada en cada fotografía como objeto patrón, permitiendo calibrar la escala de longitud dentro del software y asegurar que todas las mediciones del área foliar fueran precisas y comparables entre imágenes.
+
+El uso de un objeto de tamaño conocido facilitó la definición de la relación pixeles–centímetros, lo que permitió automatizar la medición del área foliar mediante segmentación por color, método que resultó más eficiente y exacto para el presente análisis.
+
+## Análisis en ImageJ
+
+Las imágenes se procesaron en ImageJ siguiendo un flujo de trabajo estándar:
+
+1. Importación de la imagen.
+
+2. Definición de la escala mediante la selección del diámetro de la moneda (2.54 cm).
+
+3. Segmentación por color, técnica que permitió separar de forma eficiente la lámina foliar del fondo.
+
+4. Delineado automático del contorno de la hoja.
+
+5. Obtención de parámetros morfométricos, incluyendo área, longitud (alto) y ancho.
+
+La segmentación basada en color facilitó el aislamiento del tejido foliar, permitiendo un cálculo más preciso del área y reduciendo la variabilidad asociada al procesamiento manual.
+
+# Resultados 
