@@ -1,0 +1,82 @@
+---
+title: "4 variables"
+author: "Ruben"
+format: html
+
+```{r}
+```
+---
+title: "4 variables"
+author: "Ruben"
+format: html
+
+```{r}
+library(googlesheets4)
+library(googlesheets4)
+library(ggplot2)
+library(dplyr)
+library(emmeans)
+library(tidyverse)
+library(FactoMineR)
+library(lme4)
+
+
+
+```
+
+## cargar base de datos. 
+
+```{r}
+
+url <- "https://docs.google.com/spreadsheets/d/15r7ZwcZZHbEgltlF6gSFvCTFA-CFzVBWwg3mFlRyKPs/edit?gid=172957346#gid=172957346" 
+gs <- url %>% 
+  as_sheets_id()
+
+fb <- gs %>%
+  range_read(range = "fb") %>%
+  mutate(across(c(riego, geno, bloque), as.factor))
+
+str(fb) 
+
+```
+## grafico de barras de altura 
+
+```{r}
+
+ggplot(fb, aes(geno, hi, fill = riego)) +
+  stat_summary(fun = mean, geom = "bar", position = position_dodge()) +
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2, position = position_dodge(0.9)) +
+  labs(fill = "Riego")
+
+```
+
+## grafico de lineas de lfa
+
+```{r}
+
+ggplot(fb, aes(geno, lfa, color = riego, group = riego)) +
+  stat_summary(fun = mean, geom = "line") +
+  labs(color = "Riego")
+
+```
+## boxplot de rwc 
+
+```{r}
+
+
+fb %>% mutate(rwc = lfa/hi) -> fb
+
+ggplot(fb, aes(geno, rwc, fill = riego)) +
+  geom_boxplot() +
+  labs(fill = "Riego")
+
+```
+## Regresion lineal de hi vs twue
+```{r}
+ggplot(fb, aes(twue, hi)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+```
+
+
